@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "42755728227",
+    "project_id": "diving-simulation",
+    "storage_bucket": "diving-simulation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42755728227:android:cb832631bba5f398ae2956",
+        "android_client_info": {
+          "package_name": "com.ghada.divingsimulation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42755728227-28irv873bfr9n1l2tt0ft3mkuhcetrp3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghada.divingsimulation",
+            "certificate_hash": "107f6b140f5f4d5f4f48a087131a351c3304370b"
+          }
+        },
+        {
+          "client_id": "42755728227-onmhs2ksdph12h97kg8drsat15q00f5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_jonGhjbx1WapgazkV5B2UL6eVjDPA3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42755728227-onmhs2ksdph12h97kg8drsat15q00f5k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

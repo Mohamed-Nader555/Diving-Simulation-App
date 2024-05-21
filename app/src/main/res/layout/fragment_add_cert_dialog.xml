@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/mid_margin"
+    app:cardElevation="@dimen/small_item_drawable_padding">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="@dimen/small_icons_size"
+            android:layout_height="@dimen/small_icons_size"
+            android:layout_marginStart="@dimen/margin_small_start_end"
+            android:layout_marginTop="@dimen/margin_small_start_end"
+            android:src="@drawable/ic_baseline_close_24" />
+
+
+        <TextView
+            android:id="@+id/add_cert_form_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_close"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/mid_margin"
+            android:gravity="center"
+            android:text="Add Certificate Form"
+            android:textColor="@color/main_color_dark"
+            android:textSize="@dimen/mid_text"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/dialog_image"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_below="@id/add_cert_form_txt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_item_drawable_padding"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:src="@drawable/cert_logo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/divingDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <EditText
+                android:id="@+id/cert_date_et"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_shape"
+                android:paddingStart="5dp"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@id/cert_org_et"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/cert_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
+                android:text="Certification Date"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/cert_date_et"
+                app:layout_constraintStart_toStartOf="@id/cert_date_et" />
+
+
+            <EditText
+                android:id="@+id/cert_org_et"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_12sdp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edit_text_shape"
+                android:paddingStart="5dp"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cert_date_et"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cert_org_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
+                android:text="Certification Org."
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/cert_org_et"
+                app:layout_constraintStart_toStartOf="@id/cert_org_et" />
+
+            <EditText
+                android:id="@+id/cert_level_et"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@drawable/edit_text_shape"
+                android:paddingStart="5dp"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@id/cert_date_et"
+                app:layout_constraintStart_toStartOf="@id/cert_date_et"
+                app:layout_constraintTop_toBottomOf="@id/cert_date_et" />
+
+
+            <TextView
+                android:id="@+id/cert_level_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
+                android:text="Certification Level"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/cert_level_et"
+                app:layout_constraintStart_toStartOf="@id/cert_level_et" />
+
+            <EditText
+                android:id="@+id/cert_number_et"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:background="@drawable/edit_text_shape"
+                android:paddingStart="5dp"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@id/cert_org_et"
+                app:layout_constraintStart_toStartOf="@id/cert_org_et"
+                app:layout_constraintTop_toBottomOf="@id/cert_org_et" />
+
+
+            <TextView
+                android:id="@+id/cert_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
+                android:text="Certification Number"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/cert_number_et"
+                app:layout_constraintStart_toStartOf="@id/cert_number_et" />
+
+
+            <Spinner
+                android:id="@+id/cert_type_spinner"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="16dp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_shape"
+                android:paddingStart="5dp"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/cert_number_et"
+                app:layout_constraintStart_toStartOf="@id/cert_level_et"
+                app:layout_constraintTop_toBottomOf="@id/cert_number_et" />
+
+            <TextView
+                android:id="@+id/cert_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
+                android:text="Certification Type"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/cert_type_spinner"
+                app:layout_constraintStart_toStartOf="@id/cert_type_spinner" />
+
+
+            <Button
+                android:id="@+id/add_cert_dialog_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:text="Add Cert."
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cert_type_spinner" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

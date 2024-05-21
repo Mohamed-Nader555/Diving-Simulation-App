@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/chart"
+        android:icon="@drawable/ic_chart"
+        android:title="Charts" />
+
+    <item
+        android:id="@+id/dive"
+        android:icon="@drawable/ic_diving"
+        android:title="Dive" />
+
+    <item android:title="" />
+
+    <item
+        android:id="@+id/emergency"
+        android:icon="@drawable/ic_emergency"
+        android:title="Emergency" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
+</menu>

@@ -25,6 +25,7 @@
     <style name="Theme.DivingSimulation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ShopOnTheGo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.DivingSimulation.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

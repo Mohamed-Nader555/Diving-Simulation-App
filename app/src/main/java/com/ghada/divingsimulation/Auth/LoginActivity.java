@@ -19,6 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.ghada.divingsimulation.MainHome.MainHomeActivity;
+import com.ghada.divingsimulation.Models.Accident;
+import com.ghada.divingsimulation.Models.Certificates;
+import com.ghada.divingsimulation.Models.LogBook;
+import com.ghada.divingsimulation.Models.Medical;
+import com.ghada.divingsimulation.Models.UserDataModel;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Utils.Utils;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -34,6 +39,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,6 +62,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Boolean emailAddressChecker;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mUsersRef;
+
 
 
     @Override
@@ -202,7 +216,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (emailAddressChecker) {
                             Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                             mLoading.dismiss();
-                            updateUI(firebaseUser);
+                            GoogleSaveData();
                             startActivity(new Intent(LoginActivity.this, MainHomeActivity.class));
                             finish();
                         } else {
@@ -213,7 +227,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                         Log.e(TAG, "onComplete: login" + task.getException().getMessage());
                         mAuth.signOut();
-                        updateUI(null);
                     }
                 }
             });
@@ -222,7 +235,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void updateUI(FirebaseUser fUser) {
+    private void GoogleSaveData() {
+
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (account != null) {
             String personName = account.getDisplayName();
@@ -231,8 +245,53 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             final String personEmail = account.getEmail();
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
+            String fullNameEditText = personGivenName + " " + personFamilyName;
+            final String currentUserID = mAuth.getCurrentUser().getUid();
+            mUsersRef = FirebaseDatabase.getInstance().getReference("Users");
+
+            final UserDataModel dataModel = new UserDataModel(currentUserID,
+                    fullNameEditText,
+                    personEmail,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    new ArrayList<Certificates>(),
+                    new Medical(),
+                    new ArrayList<LogBook>(),
+                    new ArrayList<Accident>());
+
+            mUsersRef.child(currentUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    if (!snapshot.exists()) {
+                        mUsersRef.child(currentUserID).setValue(dataModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    mLoading.dismiss();
+                                    Log.e(TAG, "onComplete: Done Saving Data for google account !");
+                                } else
+                                    Log.e(TAG, "onComplete: Error on Saving Data " + task.getException().toString());
+
+                            }
+                        });
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
         }
+
     }
 
 

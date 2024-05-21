@@ -1,27 +1,37 @@
 package com.ghada.divingsimulation.Auth;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import com.ghada.divingsimulation.Models.Accident;
+import com.ghada.divingsimulation.Models.Certificates;
+import com.ghada.divingsimulation.Models.LogBook;
+import com.ghada.divingsimulation.Models.Medical;
+import com.ghada.divingsimulation.Models.UserDataModel;
 import com.ghada.divingsimulation.R;
+import com.ghada.divingsimulation.Utils.AESCrypt;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,6 +42,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private CardView signupButton;
     private TextView loginTextView;
     private FirebaseAuth mAuth;
+    private DatabaseReference UsersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +153,49 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    private void saveAccountUserData() {
+        String password;
+        try {
+            password = AESCrypt.encrypt(passwordEditText.getText().toString());
+        } catch (Exception e) {
+            Log.e("Diving Simulation", "saveAccountUserData: " + e.getMessage());
+            password = passwordEditText.getText().toString();
+        }
+
+
+        String currentUserID = mAuth.getCurrentUser().getUid();
+        UsersRef = FirebaseDatabase.getInstance().getReference("Users");
+        UserDataModel dataModel = new UserDataModel(currentUserID,
+                fullNameEditText.getText().toString(),
+                emailEditText.getText().toString(),
+                "",
+                password,
+                "",
+                "",
+                "",
+                "",
+                "",
+                new ArrayList<Certificates>(),
+                new Medical(),
+                new ArrayList<LogBook>(),
+                new ArrayList<Accident>());
+
+
+        UsersRef.child(currentUserID).setValue(dataModel).addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(SignupActivity.this, "Data Saved Successfully", Toast.LENGTH_LONG).show();
+                } else {
+                    String message = task.getException().getMessage();
+                    Toast.makeText(SignupActivity.this, "Error Occurred :" + message, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+
+
     @Override
     public void onClick(View v) {
 
@@ -191,23 +245,22 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if (task.isSuccessful()) {
-                            SendEmailVerificationMessage();
-                            //saveAccountUserData();
-                        } else {
-                            String message = task.getException().getMessage();
-                            Toast.makeText(SignupActivity.this, "Error Occurred: " + message, Toast.LENGTH_LONG).show();
-                            mLoading.dismiss();
-                        }
+                if (task.isSuccessful()) {
+                    SendEmailVerificationMessage();
+                    saveAccountUserData();
+                } else {
+                    String message = task.getException().getMessage();
+                    Toast.makeText(SignupActivity.this, "Error Occurred: " + message, Toast.LENGTH_LONG).show();
+                    mLoading.dismiss();
+                }
 
 
-                    }
-                });
+            }
+        });
     }
 
     private void SendEmailVerificationMessage() {

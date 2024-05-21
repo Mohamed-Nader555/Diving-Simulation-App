@@ -4,6 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.ghada.divingsimulation.R;
+
 public class Utils {
 
     public static String UserID = "userIDKey";
@@ -38,6 +45,8 @@ public class Utils {
         }
         return alertDialog;
     }
+
+
 
 
 }

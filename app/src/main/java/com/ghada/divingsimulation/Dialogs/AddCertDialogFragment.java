@@ -1,11 +1,6 @@
 package com.ghada.divingsimulation.Dialogs;
 
-import android.app.Dialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.ghada.divingsimulation.R;
 
@@ -34,13 +30,13 @@ public class AddCertDialogFragment extends DialogFragment {
 
     public AddCertDialogFragment() {
 
-     }
+    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.fragment_add_cert_dialog, container, false);
+        view = inflater.inflate(R.layout.fragment_add_cert_dialog, container, false);
 
         initViews();
 
@@ -86,16 +82,13 @@ public class AddCertDialogFragment extends DialogFragment {
 
         mAddCertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Toast.makeText(getContext(), "Done Getting Data", Toast.LENGTH_SHORT).show();
             }
         });
 
 
     }
-
-
 
 
     private void initPlacesPricesSpinner(final ArrayList<String> data) {

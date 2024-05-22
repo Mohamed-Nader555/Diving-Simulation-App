@@ -3,7 +3,6 @@ package com.ghada.divingsimulation.Profile;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.ghada.divingsimulation.Dialogs.AddCertDialogFragment;
 import com.ghada.divingsimulation.Dialogs.MedicalDialogFragment;
-import com.ghada.divingsimulation.Models.UserDataModel;
+import com.ghada.divingsimulation.Models.User.UserDataModel;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Splash.SplashActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -31,15 +30,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class ProfileFragment extends Fragment {
 
+    ProgressDialog mLoading;
+    AddCertDialogFragment addCertDialog = new AddCertDialogFragment();
+    MedicalDialogFragment medicalDialog = new MedicalDialogFragment();
+    Button mAddCertBtn, mMedicalInformationBtn;
+    TextView mNameTV, mEmailTV;
     private View view;
     private Button logoutBtn;
-
-    ProgressDialog mLoading;
     private String currentUserID;
     private FirebaseUser user;
     private DatabaseReference mUsersRef;
@@ -48,13 +49,6 @@ public class ProfileFragment extends Fragment {
     private UserDataModel userData;
     private GoogleSignInClient mGoogleSignInClient;
     private AuthCredential credential;
-    AddCertDialogFragment addCertDialog = new AddCertDialogFragment();
-    MedicalDialogFragment medicalDialog = new MedicalDialogFragment();
-
-
-
-    Button mAddCertBtn, mMedicalInformationBtn;
-    TextView mNameTV, mEmailTV;
 
 
     public ProfileFragment() {
@@ -92,7 +86,6 @@ public class ProfileFragment extends Fragment {
         mEmailTV = view.findViewById(R.id.email_text);
 
 
-
         getData();
 
         mAddCertBtn.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +101,6 @@ public class ProfileFragment extends Fragment {
                 medicalDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "MedicalDialogFragment");
             }
         });
-
 
 
         logoutBtn = view.findViewById(R.id.logout_btn);
@@ -138,8 +130,8 @@ public class ProfileFragment extends Fragment {
                 if (snapshot.exists()) {
 
                     userData = snapshot.getValue(UserDataModel.class);
-                    String name =  userData.getFullName();
-                    String email =  userData.getEmail();
+                    String name = userData.getFullName();
+                    String email = userData.getEmail();
                     mNameTV.setText(name);
                     mEmailTV.setText(email);
 

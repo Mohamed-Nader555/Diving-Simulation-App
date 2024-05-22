@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary_color_variant"
+    app:background="@color/secondary_color_variant"
+    android:backgroundTint="@color/secondary_color_variant"
+    app:backgroundTint="@color/secondary_color_variant"
+
+    android:elevation="@dimen/margin_start_end"
+    app:cardCornerRadius="@dimen/margin_start_end"
+    app:cardElevation="@dimen/small_item_drawable_padding">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color_dark">
+
+
+        <ImageView
+            android:id="@+id/dialog_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_tiny_start_end"
+            android:src="@drawable/diving_site_25" />
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="@dimen/small_icons_size"
+            android:layout_height="@dimen/small_icons_size"
+            android:layout_marginStart="@dimen/margin_small_start_end"
+            android:layout_marginTop="@dimen/margin_small_start_end"
+            android:background="@color/secondary_color_tran"
+            android:src="@drawable/ic_baseline_close_24"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/dialog_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:gravity="center"
+            android:text="Tue 5/27/2022"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/mid_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="Cairo, Egypt"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:id="@+id/dialog_min_max_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_address"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/big_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dialog_depth" />
+
+                <TextView
+                    android:id="@+id/dialog_max_depth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="Max Depth: 91-100ft/28-30m"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dialog_enter" />
+
+                <TextView
+                    android:id="@+id/dialog_entry_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10°"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dialog_down_arrow" />
+
+                <TextView
+                    android:id="@+id/dialog_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10°"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dialog_fish" />
+
+                <TextView
+                    android:id="@+id/dialog_aquatic_life"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10°"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dialog_star" />
+
+                <TextView
+                    android:id="@+id/dialog_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10°"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

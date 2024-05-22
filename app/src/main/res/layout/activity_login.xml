@@ -31,10 +31,10 @@
     <TextView
         android:id="@+id/hintTextView"
         android:layout_width="wrap_content"
-        android:textStyle="bold"
         android:layout_height="@dimen/_20sdp"
         android:text="@string/pleaseloginorsignuptocontuinieourapp"
         android:textSize="@dimen/tiny_text"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/welcomeTextView"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTextView" />
 
@@ -77,8 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:hint="@string/password"
         app:boxStrokeColor="@color/secondary_color"
         app:boxStrokeErrorColor="@color/main_color_dark"

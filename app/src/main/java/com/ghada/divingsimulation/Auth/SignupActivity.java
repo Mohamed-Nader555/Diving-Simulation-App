@@ -15,11 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.ghada.divingsimulation.Models.Accident;
-import com.ghada.divingsimulation.Models.Certificates;
-import com.ghada.divingsimulation.Models.LogBook;
-import com.ghada.divingsimulation.Models.Medical;
-import com.ghada.divingsimulation.Models.UserDataModel;
+import com.ghada.divingsimulation.Models.User.Accident;
+import com.ghada.divingsimulation.Models.User.Certificates;
+import com.ghada.divingsimulation.Models.User.LogBook;
+import com.ghada.divingsimulation.Models.User.Medical;
+import com.ghada.divingsimulation.Models.User.UserDataModel;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Utils.AESCrypt;
 import com.google.android.gms.tasks.OnCompleteListener;

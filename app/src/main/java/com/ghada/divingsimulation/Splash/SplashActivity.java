@@ -1,25 +1,31 @@
 package com.ghada.divingsimulation.Splash;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ghada.divingsimulation.Auth.LoginActivity;
 import com.ghada.divingsimulation.MainHome.MainHomeActivity;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Utils.CheckInternetConnection;
-import com.ghada.divingsimulation.Utils.Utils;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SplashActivity extends AppCompatActivity {
+import java.util.List;
+
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
+
+public class SplashActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
 
-
+    public static final int LOCATION_PICK = 11;
     private CheckInternetConnection cd;
     private FirebaseAuth mAuth;
 
@@ -45,14 +51,29 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 if (!cd.isConnected()) {
                     Toast.makeText(SplashActivity.this, "No Internet Connection !", Toast.LENGTH_SHORT).show();
-                    sendUserToHome();
                 } else {
-                    checkUser();
+                    checkPermmisions();
                 }
             }
         }, 2000);
     }
 
+
+    @AfterPermissionGranted(1111)
+    private void checkPermmisions() {
+
+        String[] locationPermmsions = new String[0];
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+            locationPermmsions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION
+                    , Manifest.permission.ACCESS_COARSE_LOCATION};
+        if (EasyPermissions.hasPermissions(this, locationPermmsions)) {
+            checkUser();
+            finish();
+        } else {
+            EasyPermissions.requestPermissions(this, "Location Access"
+                    , 1111, locationPermmsions);
+        }
+    }
 
     void checkUser() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -64,26 +85,39 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void sendUserToLogin() {
-        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+        startActivityForResult(intent, LOCATION_PICK);
         finish();
     }
 
     void sendUserToHome() {
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-
-//        Utils.getSpEditor(this).putString(Utils.UserID, firebaseUser.getUid().toString());
-//        Utils.getSpEditor(this).putBoolean(Utils.IsLoggedOn, true);
-//        Utils.getSpEditor(this).commit();
-
         Intent intent = new Intent(SplashActivity.this, MainHomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
+        startActivityForResult(intent, LOCATION_PICK);
         finish();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        Toast.makeText(this, "Permission granted", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        Toast.makeText(this, "Permission Needed To Run The App", Toast.LENGTH_LONG).show();
+        checkPermmisions();
+    }
 
 
 }

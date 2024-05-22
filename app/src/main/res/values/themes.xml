@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.DivingSimulation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/main_color</item>
@@ -13,7 +13,7 @@
         <item name="colorSecondaryVariant">@color/dark</item>
         <item name="colorOnSecondary">@color/whitey</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/main_color</item>
+        <item name="android:statusBarColor">@color/main_color</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
@@ -25,6 +25,7 @@
     <style name="Theme.DivingSimulation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ShopOnTheGo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="Theme.DivingSimulation.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 

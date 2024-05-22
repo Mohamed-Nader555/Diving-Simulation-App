@@ -1,4 +1,4 @@
-package com.ghada.divingsimulation.Models;
+package com.ghada.divingsimulation.Models.User;
 
 public class Medical {
     String bloodPressure;

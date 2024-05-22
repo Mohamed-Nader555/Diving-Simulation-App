@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_car_view"
+    android:layout_width="@dimen/_125sdp"
+    android:layout_height="@dimen/_165sdp"
+    android:layout_margin="@dimen/small_item_drawable_padding"
+    android:elevation="@dimen/margin_start_end"
+    app:cardCornerRadius="@dimen/margin_start_end"
+    app:cardElevation="@dimen/small_item_drawable_padding">
+
+    <LinearLayout
+        android:id="@+id/hourly_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hourly_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small_start_end"
+            android:layout_marginTop="@dimen/margin_tiny_start_end"
+            android:layout_marginEnd="@dimen/margin_small_start_end"
+            android:gravity="center"
+            android:text="9:00 AM"
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/hourly_image"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_small_start_end"
+            android:scaleType="fitXY"
+            android:src="@drawable/moon" />
+
+
+        <RelativeLayout
+            android:id="@+id/hourly_temp_degree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_small_start_end">
+
+            <TextView
+                android:id="@+id/hourly_weather_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_small_start_end"
+                android:gravity="center"
+                android:text="30"
+                android:textColor="?attr/text_color"
+                android:textSize="@dimen/_25sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/hourly_weather_deg_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small_start_end"
+                android:layout_toEndOf="@id/hourly_weather_temp"
+                android:gravity="center"
+                android:text="°"
+                android:textColor="?attr/text_color"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

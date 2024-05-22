@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_small_start_end">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/use_this_location"
+        android:textColor="@color/main_color"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/myAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/use_this_location"
+        android:textSize="@dimen/tiny_text_size" />
+
+    <fragment
+        android:id="@+id/mapp"
+        class="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_start_end"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_text_size"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/Change"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_tiny_start_end"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape_main_color"
+            android:text="@string/change_location_btn"
+            android:textColor="@color/whitey"
+            android:textSize="@dimen/tiny_text_size"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/Select"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_tiny_start_end"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape_main_color"
+            android:text="@string/use_location_btn"
+            android:textColor="@color/whitey"
+            android:textSize="@dimen/tiny_text_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

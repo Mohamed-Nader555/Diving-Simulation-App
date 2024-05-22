@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/margin_start_end"
+    app:cardCornerRadius="@dimen/margin_start_end"
+    app:cardElevation="@dimen/small_item_drawable_padding">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color_dark">
+
+        <ImageView
+            android:id="@+id/dialog_close"
+            android:layout_width="@dimen/small_icons_size"
+            android:layout_height="@dimen/small_icons_size"
+            android:layout_marginStart="@dimen/margin_small_start_end"
+            android:layout_marginTop="@dimen/margin_small_start_end"
+            android:src="@drawable/ic_baseline_close_24" />
+
+        <TextView
+            android:id="@+id/dialog_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_close"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:gravity="center"
+            android:text="Cairo, Egypt"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/mid_text_size"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/dialog_time_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_address"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Time Zone: Africa/Cairo"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/small_text_size" />
+
+        <ImageView
+            android:id="@+id/dialog_image"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_below="@id/dialog_time_zone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_item_drawable_padding"
+            android:layout_marginBottom="@dimen/small_item_drawable_padding"
+            android:src="@drawable/clouds" />
+
+        <TextView
+            android:id="@+id/dialog_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_tiny_start_end"
+            android:gravity="center"
+            android:text="clear sky"
+            android:textAllCaps="true"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/temp_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_des"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_small_start_end"
+            android:layout_marginBottom="@dimen/margin_small_start_end">
+
+            <TextView
+                android:id="@+id/dialog_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="30"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_40sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dialog_deg_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_mid_start_end"
+                android:layout_toEndOf="@id/dialog_temp"
+                android:gravity="center"
+                android:text="°"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_30sdp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/dialog_min_max_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temp_degree"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sun_rise" />
+
+                <TextView
+                    android:id="@+id/dialog_sun_rise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sun_set" />
+
+                <TextView
+                    android:id="@+id/dialog_sun_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/dialog_three_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_min_max_details"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_start_end"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/humidity_small" />
+
+                <TextView
+                    android:id="@+id/dialog_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10%"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind_small" />
+
+                <TextView
+                    android:id="@+id/dialog_wind_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10 m/s"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/small_icons_size"
+                    android:layout_height="@dimen/small_icons_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/clouds_small" />
+
+                <TextView
+                    android:id="@+id/dialog_clouds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_item_drawable_padding"
+                    android:text="10%"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -25,8 +25,8 @@
         android:layout_marginTop="@dimen/tiny_margin"
         android:text="@string/signup"
         android:textColor="#070707"
-        android:textStyle="bold"
         android:textSize="@dimen/mid_text"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/full_name_input_et"
         app:layout_constraintTop_toBottomOf="@id/logoImage" />
 
@@ -34,9 +34,9 @@
         android:id="@+id/hintTextView"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_20sdp"
-        android:textStyle="bold"
         android:text="@string/createnewaccount"
         android:textSize="@dimen/tiny_text"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/signupTextView"
         app:layout_constraintTop_toBottomOf="@id/signupTextView" />
 
@@ -169,7 +169,6 @@
             android:textColor="@color/dark"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <androidx.cardview.widget.CardView

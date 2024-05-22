@@ -20,4 +20,7 @@
     <color name="whitey">#F3F3F3</color>
     <color name="semi_transparent_white">#75FFFFFF</color>
 
+    <color name="secondary_color_variant">#1B58C2</color>
+    <color name="secondary_color_tran">#6F1B5EC2</color>
+
 </resources>

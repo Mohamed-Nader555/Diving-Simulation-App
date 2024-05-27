@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondary_color_variant"
-    app:background="@color/secondary_color_variant"
     android:backgroundTint="@color/secondary_color_variant"
-    app:backgroundTint="@color/secondary_color_variant"
-
     android:elevation="@dimen/margin_start_end"
+    app:background="@color/secondary_color_variant"
+
+    app:backgroundTint="@color/secondary_color_variant"
     app:cardCornerRadius="@dimen/margin_start_end"
     app:cardElevation="@dimen/small_item_drawable_padding">
 

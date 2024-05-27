@@ -59,6 +59,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipViewHolder>
                 .into(holder.imageDiveSiteBg);
 
         holder.textDiveSite.setText(tip.getTipDesc());
+        holder.textDiveSiteTitle.setText(tip.getTipName());
 
         holder.cardDiveSite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +81,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipViewHolder>
 
         CardView cardDiveSite;
         ImageView imageDiveSiteBg, imageDiveSite;
-        TextView textDiveSite;
+        TextView textDiveSite, textDiveSiteTitle;
 
         public TipViewHolder(@NonNull View view) {
             super(view);
@@ -88,6 +89,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipViewHolder>
             imageDiveSiteBg = view.findViewById(R.id.imageDiveSiteBg);
             imageDiveSite = view.findViewById(R.id.imageDiveSite);
             textDiveSite = view.findViewById(R.id.textDiveSite);
+            textDiveSiteTitle = view.findViewById(R.id.textDiveSiteTitle);
 
         }
     }

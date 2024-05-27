@@ -2,6 +2,14 @@
     <string name="app_name">Diving Simulation</string>
 
 
+
+
+    <string name="database_logbooks">logBook</string>
+    <string name="database_accidents">accidents</string>
+    <string name="database_certificates">certificates</string>
+    <string name="database_medical">medical</string>
+
+
     <string name="donothavaaccount">Don\'t have an account?</string>
     <string name="Createanewaccount">Create a new account</string>
     <string name="forgetpasswod">Did you forget the password?</string>
@@ -112,6 +120,23 @@
     <string name="create_new_btn">Create New</string>
     <string name="download_question">Do you want to create new file or append the old one (if exist) ?</string>
     <string name="download_weather_title">Download Weather Data</string>
+    <string name="title_activity_hospitals_map">HospitalsMapActivity</string>
+
+    <string name="dan_emr">DAN Emergency Hotline: +39-06-4211-5685</string>
+    <string name="dan_info">Divers Alert Network \nClick HERE for more info</string>
+    <string name="dan_name">Divers Alert Network - DAN</string>
+    <string name="dan_expectaion">
+    If you ever need help, DAN will be here for you. DAN medics are on call 24 hours a day, 365 days a year, to assist divers and medical personnel in managing diving emergencies.
+
+    What to expect when you call the DAN Emergency Hotline:
+
+    You will be asked for your name, location and callback number. If you are a DAN Member, please provide your DAN member number as well.
+
+    DAN medics may make an immediate recommendation or ask to call you back after making arrangements. DAN may reach out to its network to provide the best possible assistance.
+
+    If the call drops, we will immediately call you back at the callback number you provided. If you don’t hear from us in minutes, try calling back. Remember to dial the country code (+1) when calling the U.S. from another country.
+</string>
+    <string name="title_activity_add_log_book">AddLogBookActivity</string>
 
 
 </resources>

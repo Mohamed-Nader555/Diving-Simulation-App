@@ -12,51 +12,94 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#fff"
-            app:layout_constraintEnd_toEndOf="parent"
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:id="@+id/constraint"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="56dp"-->
+        <!--            android:background="#fff"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/home"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Profile"-->
+        <!--                android:textColor="@color/dark"-->
+        <!--                android:textSize="@dimen/mid_text"-->
+        <!--                android:textStyle="bold"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/user_profile_btn"-->
+        <!--                android:layout_width="@dimen/_25sdp"-->
+        <!--                android:layout_height="@dimen/_30sdp"-->
+        <!--                android:layout_marginEnd="@dimen/_10sdp"-->
+        <!--                android:src="@drawable/ic_profile"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                app:tint="@color/main_color" />-->
+
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <ImageView
+            android:id="@+id/weather_location_pin"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:src="@drawable/location_pin"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/edit_profile_image"
+            android:layout_width="@dimen/small_icons"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/mid_margin"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="@id/page_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/main_color" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/page_header"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_below="@id/weather_location_pin"
+            android:layout_marginStart="@dimen/tiny_margin"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/tiny_margin"
+            android:backgroundTint="@color/main_color"
+            android:elevation="@dimen/big_margin"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/tiny_margin"
+            app:layout_constraintEnd_toStartOf="@id/edit_profile_image"
+            app:layout_constraintStart_toEndOf="@id/weather_location_pin"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <TextView
-                android:id="@+id/home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="2"
                 android:text="Profile"
-                android:textColor="@color/dark"
-                android:textSize="@dimen/mid_text"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/test"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/ic_search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/main_color" />
-
-            <ImageView
-                android:id="@+id/cart"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_60sdp"
-                android:src="@drawable/ic_search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/dark" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textColor="@color/main_color_dark"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
 
         <androidx.cardview.widget.CardView
@@ -68,7 +111,7 @@
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraint">
+            app:layout_constraintTop_toBottomOf="@id/page_header">
 
             <ImageView
                 android:id="@+id/profile_img"
@@ -235,84 +278,342 @@
         <!--        </RelativeLayout>-->
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/divingDetails"
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:id="@+id/divingDetails"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/email_text">-->
+
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/total_dives_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="@dimen/_40sdp"-->
+        <!--                android:layout_margin="@dimen/_12sdp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:background="@drawable/edit_text_shape"-->
+        <!--                android:paddingStart="10dp"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:text="Total Dives: 5"-->
+        <!--                android:textSize="@dimen/_12sdp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                app:layout_constraintEnd_toStartOf="@id/total_dive_time_et"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/total_dive_time_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="@dimen/_40sdp"-->
+        <!--                android:layout_margin="@dimen/_12sdp"-->
+        <!--                android:background="@drawable/edit_text_shape"-->
+        <!--                android:paddingStart="10dp"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:text="Total Dive Time: 10h"-->
+        <!--                android:textSize="@dimen/_12sdp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@id/total_dives_et"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/avg_depth_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="@dimen/_40sdp"-->
+        <!--                android:layout_marginTop="@dimen/_8sdp"-->
+        <!--                android:layout_marginBottom="@dimen/_8sdp"-->
+        <!--                android:background="@drawable/edit_text_shape"-->
+        <!--                android:paddingStart="10dp"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:text="Total Dive Time: 10h"-->
+        <!--                android:textSize="@dimen/_12sdp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="@id/total_dives_et"-->
+        <!--                app:layout_constraintStart_toStartOf="@id/total_dives_et"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/total_dives_et" />-->
+
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/max_depth_et"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="@dimen/_40sdp"-->
+        <!--                android:layout_marginTop="@dimen/_8sdp"-->
+        <!--                android:layout_marginBottom="@dimen/_8sdp"-->
+        <!--                android:background="@drawable/edit_text_shape"-->
+        <!--                android:paddingStart="10dp"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:text="Total Dive Time: 10h"-->
+        <!--                android:textSize="@dimen/_12sdp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="@id/total_dive_time_et"-->
+        <!--                app:layout_constraintStart_toStartOf="@id/total_dive_time_et"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/total_dive_time_et" />-->
+
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <RelativeLayout
+            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email_text">
 
+            <LinearLayout
+                android:id="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-            <TextView
-                android:id="@+id/total_dives_et"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_margin="@dimen/_12sdp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_text_shape"
-                android:paddingStart="10dp"
-                android:paddingTop="15dp"
-                android:text="Total Dives: 5"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/total_dive_time_et"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
 
-            <TextView
-                android:id="@+id/total_dive_time_et"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_margin="@dimen/_12sdp"
-                android:background="@drawable/edit_text_shape"
-                android:paddingStart="10dp"
-                android:paddingTop="15dp"
-                android:text="Total Dive Time: 10h"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/total_dives_et"
-                app:layout_constraintTop_toTopOf="parent" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_small_start_end"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/profile_times" />
 
-            <TextView
-                android:id="@+id/avg_depth_et"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
-                android:background="@drawable/edit_text_shape"
-                android:paddingStart="10dp"
-                android:paddingTop="15dp"
-                android:text="Total Dive Time: 10h"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/total_dives_et"
-                app:layout_constraintStart_toStartOf="@id/total_dives_et"
-                app:layout_constraintTop_toBottomOf="@id/total_dives_et" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="@dimen/tiny_margin"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Total Dives"
+                            android:textColor="@color/secondary_color"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/max_depth_et"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
-                android:background="@drawable/edit_text_shape"
-                android:paddingStart="10dp"
-                android:paddingTop="15dp"
-                android:text="Total Dive Time: 10h"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/total_dive_time_et"
-                app:layout_constraintStart_toStartOf="@id/total_dive_time_et"
-                app:layout_constraintTop_toBottomOf="@id/total_dive_time_et" />
+                        <TextView
+                            android:id="@+id/total_dives_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:text="10 Times"
+                            android:textColor="@color/main_color_dark"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_small_start_end"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/profile_total_time" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="@dimen/tiny_margin"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Total Dive Time"
+                            android:textColor="@color/secondary_color"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/total_dive_time_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:text="10 Hours"
+                            android:textColor="@color/main_color_dark"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/second_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/first_row"
+                android:layout_marginTop="@dimen/mid_margin"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_small_start_end"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/profile_avg_depth" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="@dimen/tiny_margin"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Avg Depth"
+                            android:textColor="@color/secondary_color"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/avg_depth_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:text="10 Meter"
+                            android:textColor="@color/main_color_dark"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_small_start_end"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/profile_max_depth" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="@dimen/tiny_margin"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="Max Depth"
+                            android:textColor="@color/secondary_color"
+                            android:textSize="@dimen/_13sdp"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/max_depth_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:text="14 Meter"
+                            android:textColor="@color/main_color_dark"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_alignParentBottom="true" />
+
+
+        </RelativeLayout>
 
 
         <TextView
@@ -326,7 +627,7 @@
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divingDetails" />
+            app:layout_constraintTop_toBottomOf="@id/user_info" />
 
 
         <TableLayout
@@ -376,53 +677,179 @@
         </TableLayout>
 
 
-        <Button
-            android:id="@+id/add_cert_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mid_margin"
-            android:layout_marginEnd="@dimen/big_margin"
-            android:text="Add Cert."
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/dark"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cert_table" />
-
-
-        <Button
-            android:id="@+id/medical_information_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/big_margin"
-            android:layout_marginTop="@dimen/mid_margin"
-            android:text="Medical Inofrmation"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/dark"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cert_table" />
-
-
-        <Button
-            android:id="@+id/logout_btn"
+        <LinearLayout
+            android:id="@+id/medical_and_cert_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/big_margin"
-            android:layout_marginTop="@dimen/mid_margin"
-            android:layout_marginEnd="@dimen/big_margin"
-            android:text="Logout"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/dark"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/medical_information_btn" />
+            android:layout_marginTop="@dimen/double_big_margin"
+            android:layout_marginBottom="@dimen/double_big_margin"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toTopOf="@id/last_view"
+            app:layout_constraintTop_toBottomOf="@id/cert_table">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/medical_information_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_145sdp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_small_start_end"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/medical_logo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:text="Medical Info"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/mid_text"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:text="Add and edit your medical information"
+                        android:textColor="@color/main_color_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_cert_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_145sdp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_small_start_end"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/cert_logo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:text="Dive Certificates"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/mid_text"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:text="Add Certificates to start Simulation"
+                        android:textColor="@color/main_color_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <!--        <Button-->
+        <!--            android:id="@+id/add_cert_btn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/mid_margin"-->
+        <!--            android:layout_marginEnd="@dimen/big_margin"-->
+        <!--            android:text="Add Cert."-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="@color/dark"-->
+        <!--            android:textSize="@dimen/_10sdp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/cert_table" />-->
+
+
+        <!--        <Button-->
+        <!--            android:id="@+id/medical_information_btn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="@dimen/big_margin"-->
+        <!--            android:layout_marginTop="@dimen/mid_margin"-->
+        <!--            android:text="Medical Inofrmation"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="@color/dark"-->
+        <!--            android:textSize="@dimen/_10sdp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/cert_table" />-->
+
+
+        <!--        <Button-->
+        <!--            android:id="@+id/logout_btn"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="@dimen/big_margin"-->
+        <!--            android:layout_marginTop="@dimen/mid_margin"-->
+        <!--            android:layout_marginEnd="@dimen/big_margin"-->
+        <!--            android:text="Logout"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="@color/dark"-->
+        <!--            android:textSize="@dimen/_12sdp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintBottom_toTopOf="@id/last_view"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/medical_and_cert_row" />-->
 
 
         <View

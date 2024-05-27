@@ -11,7 +11,9 @@
         android:icon="@drawable/ic_diving"
         android:title="Dive" />
 
-    <item android:title="" />
+    <item
+        android:id="@+id/hidden"
+        android:title="" />
 
     <item
         android:id="@+id/emergency"

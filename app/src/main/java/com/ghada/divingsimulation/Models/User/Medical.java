@@ -2,7 +2,6 @@ package com.ghada.divingsimulation.Models.User;
 
 public class Medical {
     String bloodPressure;
-    String bloodType;
     String age;
     String pastInj;
     String chronicDiseases;
@@ -13,7 +12,6 @@ public class Medical {
     public Medical() {
 
         bloodPressure = "";
-        bloodType = "";
         age = "";
         pastInj = "";
         chronicDiseases = "";
@@ -23,9 +21,8 @@ public class Medical {
     }
 
 
-    public Medical(String bloodPressure, String bloodType, String age, String pastInj, String chronicDiseases, String earDiseases, String heartDiseases) {
+    public Medical(String bloodPressure, String age, String pastInj, String chronicDiseases, String earDiseases, String heartDiseases) {
         this.bloodPressure = bloodPressure;
-        this.bloodType = bloodType;
         this.age = age;
         this.pastInj = pastInj;
         this.chronicDiseases = chronicDiseases;
@@ -42,13 +39,6 @@ public class Medical {
         this.bloodPressure = bloodPressure;
     }
 
-    public String getBloodType() {
-        return bloodType;
-    }
-
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
 
     public String getAge() {
         return age;
@@ -88,6 +78,18 @@ public class Medical {
 
     public void setHeartDiseases(String heartDiseases) {
         this.heartDiseases = heartDiseases;
+    }
+
+    @Override
+    public String toString() {
+        return "Medical{" +
+                "bloodPressure='" + bloodPressure + '\'' +
+                ", age='" + age + '\'' +
+                ", pastInj='" + pastInj + '\'' +
+                ", chronicDiseases='" + chronicDiseases + '\'' +
+                ", earDiseases='" + earDiseases + '\'' +
+                ", heartDiseases='" + heartDiseases + '\'' +
+                '}';
     }
 }
 

@@ -1,65 +1,80 @@
 package com.ghada.divingsimulation.Dive;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.ghada.divingsimulation.Dive.CheckLists.CheckListActivity;
+import com.ghada.divingsimulation.Dive.DiveSites.DiveSitesActivity;
+import com.ghada.divingsimulation.Dive.LogBook.LogBookActivity;
+import com.ghada.divingsimulation.Dive.Simulation.SimulationActivity;
 import com.ghada.divingsimulation.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DiveFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DiveFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    View view;
+    CardView logbook_card_view, checklist_card_view, dive_sties_card_view, simulation_card_view;
 
     public DiveFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DiveFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DiveFragment newInstance(String param1, String param2) {
-        DiveFragment fragment = new DiveFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_dive, container, false);
+
+        initViews();
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dive, container, false);
+    private void initViews() {
+        logbook_card_view = view.findViewById(R.id.logbook_card_view);
+        checklist_card_view = view.findViewById(R.id.checklist_card_view);
+        dive_sties_card_view = view.findViewById(R.id.dive_sties_card_view);
+        simulation_card_view = view.findViewById(R.id.simulation_card_view);
+
+        logbook_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LogBookActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        checklist_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CheckListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        dive_sties_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DiveSitesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        simulation_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SimulationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }

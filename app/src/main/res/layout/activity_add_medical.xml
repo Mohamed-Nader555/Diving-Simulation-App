@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile.AddMedicalActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/main_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back"
+                app:tint="@color/main_color_dark" />
+
+            <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="Add Medical Info"
+                android:textColor="@color/main_color_dark"
+                android:textSize="@dimen/page_header"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/small_item_drawable_padding"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:src="@drawable/medical_logo" />
+
+
+            <LinearLayout
+                android:id="@+id/blood_pressure_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Have Blood Pressure ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_blood_pressure_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_blood_pressure_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_blood_pressure_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/age_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@id/blood_pressure_question">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Age above 40 ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_age_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_age_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_age_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/past_inj_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@id/age_question">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Have Past Injuries ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_past_inj_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_past_inj_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_past_inj_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/chronic_diseases_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@id/past_inj_question">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Have Chronic Diseases ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_chronic_diseases_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_chronic_diseases_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_chronic_diseases_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ear_diseases_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@id/chronic_diseases_question">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Have Ear Diseases ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_ear_diseases_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_ear_diseases_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_ear_diseases_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/heart_diseases_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@id/ear_diseases_question">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:gravity="center_vertical"
+                    android:text="Have Heart Diseases ?"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_heart_diseases_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/radio_heart_diseases_yes_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="Yes"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_heart_diseases_no_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/secondary_color"
+                        android:text="No"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/tiny_text" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cert_save_cert_book_btn"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/double_big_margin"
+                android:backgroundTint="#00003D"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="@dimen/small_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/tiny_margin"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:textColor="@color/whitey"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,11 +42,9 @@ public class MainHomeActivity extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
         bottomNavigationView.setBackground(null);
+        bottomNavigationView.setSelectedItemId(R.id.hidden);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
                 case R.id.chart:
                     replaceFragment(new ChartFragment());
                     break;
@@ -68,6 +66,7 @@ public class MainHomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                bottomNavigationView.setSelectedItemId(R.id.hidden);
                 replaceFragment(new HomeFragment());
             }
         });

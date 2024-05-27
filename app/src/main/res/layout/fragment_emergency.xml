@@ -1,14 +1,295 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Emergency.EmergencyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Emergency Fragment" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/weather_location_pin"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/mid_margin"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:src="@drawable/location_pin"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/weather_temps_download"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/mid_margin"
+            android:src="@drawable/cloud_download"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/page_header"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_below="@id/weather_location_pin"
+            android:layout_marginStart="@dimen/tiny_margin"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/tiny_margin"
+            android:backgroundTint="@color/main_color"
+            android:elevation="@dimen/big_margin"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/tiny_margin"
+            app:layout_constraintEnd_toStartOf="@id/weather_temps_download"
+            app:layout_constraintStart_toEndOf="@id/weather_location_pin"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="2"
+                android:text="Emergency"
+                android:textColor="@color/main_color_dark"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_ambulance"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="@dimen/double_big_margin"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/main_color"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/small_margin"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_header">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageDiveSiteBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/hospital_background" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#AD95121D" />
+
+                <ImageView
+                    android:id="@+id/imageDiveSite"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:padding="16dp"
+                    android:src="@drawable/ambulance" />
+
+                <TextView
+                    android:id="@+id/textDiveSite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/imageDiveSite"
+                    android:layout_toRightOf="@id/imageDiveSite"
+                    android:ellipsize="end"
+                    android:maxLines="6"
+                    android:padding="16dp"
+                    android:text="Call 123"
+                    android:textColor="@color/whitey"
+                    android:textSize="@dimen/_40sdp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_fill_accident"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:backgroundTint="@color/main_color"
+            android:elevation="@dimen/big_margin"
+            android:text="@string/login"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/tiny_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_ambulance">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_65sdp"
+                    android:layout_height="@dimen/_65sdp"
+                    android:layout_margin="@dimen/big_margin"
+                    android:src="@drawable/drown" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/tiny_margin"
+                    android:gravity="center"
+                    android:minLines="3"
+                    android:text="Fill an Accident Information"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_open_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:backgroundTint="@color/main_color"
+            android:elevation="@dimen/big_margin"
+            android:text="@string/login"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/tiny_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_fill_accident">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/_65sdp"
+                    android:layout_height="@dimen/_65sdp"
+                    android:layout_margin="@dimen/big_margin"
+                    android:src="@drawable/emerging_markets" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/tiny_margin"
+                    android:gravity="center"
+                    android:minLines="3"
+                    android:text="See Nearest Hospitals \non Map"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dan_hint_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/double_big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:elevation="@dimen/big_margin"
+            app:cardCornerRadius="@dimen/big_margin"
+            app:cardElevation="@dimen/tiny_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_open_map">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_color">
+
+                <ImageView
+                    android:id="@+id/hint_dan_image"
+                    android:layout_width="@dimen/_65sdp"
+                    android:layout_height="@dimen/_65sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/emergency_call" />
+
+                <TextView
+                    android:id="@+id/dan_emergency_hotline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/hint_dan_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/tiny_margin"
+                    android:layout_marginTop="@dimen/tiny_margin"
+                    android:layout_marginEnd="@dimen/tiny_margin"
+                    android:minLines="2"
+                    android:text="@string/dan_emr"
+                    android:textAlignment="center"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/dan_more_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dan_emergency_hotline"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="@string/dan_info"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="@dimen/small_text" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/instructions_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dan_hint_card_view" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instructions_recyclerView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

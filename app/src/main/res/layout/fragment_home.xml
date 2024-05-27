@@ -11,30 +11,167 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/weather_location_pin"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/mid_margin"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:src="@drawable/location_pin"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/weather_temps_download"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:layout_marginEnd="@dimen/mid_margin"
+                    android:src="@drawable/cloud_download"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/page_header"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_below="@id/weather_location_pin"
+                    android:layout_marginStart="@dimen/tiny_margin"
+                    android:layout_marginTop="@dimen/mid_margin"
+                    android:layout_marginEnd="@dimen/tiny_margin"
+                    android:backgroundTint="@color/main_color"
+                    android:elevation="@dimen/big_margin"
+                    app:cardCornerRadius="@dimen/big_margin"
+                    app:cardElevation="@dimen/tiny_margin"
+                    app:layout_constraintEnd_toStartOf="@id/weather_temps_download"
+                    app:layout_constraintStart_toEndOf="@id/weather_location_pin"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/weather_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="2"
+                        android:text="Home"
+                        android:textColor="@color/main_color_dark"
+                        android:textSize="@dimen/small_text"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/hint_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/tiny_margin"
+                android:layout_marginTop="@dimen/double_big_margin"
+
+                android:layout_marginEnd="@dimen/tiny_margin"
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:text="Diving Tips and Tricks"
+                android:textAlignment="center"
+                android:textColor="@color/main_color_dark"
+                android:textSize="@dimen/_19sdp"
+                android:textStyle="bold" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/tips_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/hint_tips"
                 android:layout_marginBottom="@dimen/small_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+
+            <TextView
+                android:id="@+id/hint_dive_sites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tips_view_pager"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/tiny_margin"
+                android:layout_marginTop="@dimen/tiny_margin"
+                android:layout_marginEnd="@dimen/tiny_margin"
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:text="Check out \nThe Egyptions' Dive Sites"
+                android:textAlignment="center"
+                android:textColor="@color/main_color_dark"
+                android:textSize="@dimen/_19sdp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tips_view_pager"
+                android:layout_below="@id/hint_dive_sites"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_all_dive_sites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerView"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/big_margin"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:backgroundTint="@color/main_color"
+                android:elevation="@dimen/big_margin"
+                android:text="@string/login"
+                app:cardCornerRadius="@dimen/big_margin"
+                app:cardElevation="@dimen/tiny_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/mid_margin"
+                        android:src="@drawable/dive_dive" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:drawablePadding="@dimen/tiny_margin"
+                        android:gravity="center"
+                        android:minLines="3"
+                        android:text="View All Dive Sties"
+                        android:textColor="@color/main_color_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60sdp"
-                android:layout_below="@id/recyclerView" />
+                android:layout_below="@id/card_view_all_dive_sites" />
 
 
         </RelativeLayout>

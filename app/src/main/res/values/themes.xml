@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.DivingSimulation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/main_color</item>
-        <item name="colorPrimaryVariant">@color/whitey</item>
-        <item name="colorOnPrimary">@color/dark</item>
+        <item name="colorPrimaryVariant">@color/main_color_dark</item>
+        <item name="colorOnPrimary">@color/main_color_dark</item>
 
         <item name="background_color">@color/whitey</item>
         <item name="text_color">@color/main_color</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/main_color</item>
-        <item name="colorSecondaryVariant">@color/dark</item>
+        <item name="colorSecondaryVariant">@color/main_color_dark</item>
         <item name="colorOnSecondary">@color/whitey</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/main_color</item>
@@ -21,6 +21,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="DialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorAccent">@color/main_color_dark</item>
+    </style>
+
 
     <style name="Theme.DivingSimulation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

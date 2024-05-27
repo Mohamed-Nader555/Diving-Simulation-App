@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
+import com.ghada.divingsimulation.Auth.EditProfileActivity;
 import com.ghada.divingsimulation.Dialogs.AddCertDialogFragment;
 import com.ghada.divingsimulation.Dialogs.MedicalDialogFragment;
 import com.ghada.divingsimulation.Models.User.UserDataModel;
@@ -37,7 +39,7 @@ public class ProfileFragment extends Fragment {
     ProgressDialog mLoading;
     AddCertDialogFragment addCertDialog = new AddCertDialogFragment();
     MedicalDialogFragment medicalDialog = new MedicalDialogFragment();
-    Button mAddCertBtn, mMedicalInformationBtn;
+    CardView mAddCertBtn, mMedicalInformationBtn;
     TextView mNameTV, mEmailTV;
     private View view;
     private Button logoutBtn;
@@ -49,6 +51,7 @@ public class ProfileFragment extends Fragment {
     private UserDataModel userData;
     private GoogleSignInClient mGoogleSignInClient;
     private AuthCredential credential;
+    ImageView editProfileImage;
 
 
     public ProfileFragment() {
@@ -80,10 +83,11 @@ public class ProfileFragment extends Fragment {
         }
 
 
-        mAddCertBtn = view.findViewById(R.id.add_cert_btn);
-        mMedicalInformationBtn = view.findViewById(R.id.medical_information_btn);
+        mAddCertBtn = view.findViewById(R.id.add_cert_card_view);
+        mMedicalInformationBtn = view.findViewById(R.id.medical_information_card_view);
         mNameTV = view.findViewById(R.id.name_text);
         mEmailTV = view.findViewById(R.id.email_text);
+        editProfileImage = view.findViewById(R.id.edit_profile_image);
 
 
         getData();
@@ -91,25 +95,29 @@ public class ProfileFragment extends Fragment {
         mAddCertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCertDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "AddCertDialogFragment");
+                Intent intent = new Intent(requireContext(), AddCertActivity.class);
+                startActivity(intent);
             }
         });
 
         mMedicalInformationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                medicalDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "MedicalDialogFragment");
+//                medicalDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "MedicalDialogFragment");
+                Intent intent = new Intent(requireContext(), AddMedicalActivity.class);
+                startActivity(intent);
             }
         });
 
 
-        logoutBtn = view.findViewById(R.id.logout_btn);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
+        editProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logout();
+                Intent intent = new Intent(requireContext(), EditProfileActivity.class);
+                startActivity(intent);
             }
         });
+
 
     }
 

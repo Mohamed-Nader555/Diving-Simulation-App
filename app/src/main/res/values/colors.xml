@@ -11,6 +11,7 @@
 
     <color name="main_color">#B1DAE7</color>
     <color name="main_color_dark">#00003D</color>
+    <color name="main_color_darkk">#0C5A94</color>
     <color name="secondary_color">#018D82</color>
 
     <color name="dark">#303841</color>

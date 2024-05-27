@@ -31,25 +31,34 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/secondary_color_tran" />
+                android:background="#9C0A4FBD" />
 
-            <ImageView
-                android:id="@+id/imageDiveSite"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:padding="16dp"
-                android:scaleType="fitStart"
-                android:src="@drawable/dive_logo" />
+            <TextView
+                android:id="@+id/textDiveSiteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mid_margin"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/mid_margin"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Title"
+                android:textColor="@color/whitey"
+                android:textSize="@dimen/big_text"
+                android:textStyle="bold"
+
+                />
 
             <TextView
                 android:id="@+id/textDiveSite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imageDiveSite"
-                android:layout_toRightOf="@id/imageDiveSite"
+                android:layout_below="@id/textDiveSiteTitle"
+                android:layout_marginStart="@dimen/mid_margin"
+                android:layout_marginEnd="@dimen/mid_margin"
                 android:ellipsize="end"
-                android:maxLines="6"
-                android:padding="16dp"
+                android:maxLines="5"
+                android:padding="12dp"
                 android:text="@string/dot_loading"
                 android:textColor="@color/whitey"
                 android:textSize="15sp" />

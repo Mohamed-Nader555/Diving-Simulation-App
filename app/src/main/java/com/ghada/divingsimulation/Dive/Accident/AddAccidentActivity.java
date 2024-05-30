@@ -2,10 +2,13 @@ package com.ghada.divingsimulation.Dive.Accident;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
@@ -35,18 +38,17 @@ import java.util.Calendar;
 public class AddAccidentActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
 
-    TextInputLayout dateTextInputLayout, timeTextInputLayout;
-    private TextInputEditText rescuerNameEditText, extentOfInjuryEditText, vicNameEditText, vicNationalityEditText, vicAgeEditText, vicCertLevelEditText, depthAtAccidentEditText, cityEditText, currentDiveSiteEditText, currentUnderWaterEditText, currentSurfaceEditText, equipmentRentedEditText, drySuitEditText, EANxEditText, dateEditText, timeEditText;
-    private RadioGroup fatalRadioGroup, trainingRadioGroup, vicGenderRadioGroup, foundOnSurfaceRadioGroup;
-    private String selectedDate;
-    private CardView saveButton;
-
-
+    TextInputLayout dateTextInputLayout, timeTextInputLayout, depthAtAccidentInputLayout;
     String currentUserID;
     FirebaseUser user;
     DatabaseReference mUsersRef;
     FirebaseAuth mAuth;
     UserDataModel userData;
+    private TextInputEditText rescuerNameEditText, extentOfInjuryEditText, vicNameEditText, vicNationalityEditText, vicAgeEditText, vicCertLevelEditText, depthAtAccidentEditText, cityEditText, currentDiveSiteEditText, currentUnderWaterEditText, currentSurfaceEditText, EANxEditText, dateEditText, timeEditText;
+    private RadioGroup fatalRadioGroup, trainingRadioGroup, vicGenderRadioGroup, foundOnSurfaceRadioGroup, drySuitRadioGroup, equipmentRentedRadioGroup;
+    private String selectedDate;
+    private CardView saveButton;
+    private ImageView backBtn;
     private CustomProgress mCustomProgress = CustomProgress.getInstance();
 
     @Override
@@ -77,8 +79,6 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
         currentDiveSiteEditText = findViewById(R.id.current_dive_site_et);
         currentUnderWaterEditText = findViewById(R.id.current_underwater_et);
         currentSurfaceEditText = findViewById(R.id.current_surface_et);
-        equipmentRentedEditText = findViewById(R.id.equipment_rented_et);
-        drySuitEditText = findViewById(R.id.dry_suit_et);
         EANxEditText = findViewById(R.id.EANx_et);
         dateEditText = findViewById(R.id.date_et);
         timeEditText = findViewById(R.id.time_et);
@@ -87,12 +87,27 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
         trainingRadioGroup = findViewById(R.id.radio_group_training);
         vicGenderRadioGroup = findViewById(R.id.radio_group_vic_gender);
         foundOnSurfaceRadioGroup = findViewById(R.id.radio_group_found_on_surface);
+        drySuitRadioGroup = findViewById(R.id.radio_group_dry_suit);
+        equipmentRentedRadioGroup = findViewById(R.id.radio_group_equipment_rented);
 
-
+        depthAtAccidentInputLayout = findViewById(R.id.depth_at_accident_tvl);
         dateTextInputLayout = findViewById(R.id.date_tvl);
         timeTextInputLayout = findViewById(R.id.time_tvl);
         dateTextInputLayout.setEndIconOnClickListener(v -> showDatePicker());
         timeTextInputLayout.setEndIconOnClickListener(v -> showTimePicker());
+
+
+        foundOnSurfaceRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radio_found_on_surface_yes_btn) {
+                    depthAtAccidentInputLayout.setVisibility(View.GONE);
+                    depthAtAccidentEditText.setText("0");
+                } else if (checkedId == R.id.radio_found_on_surface_no_btn) {
+                    depthAtAccidentInputLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         saveButton = findViewById(R.id.save_accident_btn);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +116,17 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
                 saveAccident();
             }
         });
+
+        backBtn = findViewById(R.id.back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddAccidentActivity.this, AccidentActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
 
@@ -115,8 +141,6 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
         String currentDiveSite = currentDiveSiteEditText.getText().toString();
         String currentUnderwater = currentUnderWaterEditText.getText().toString();
         String currentSurface = currentSurfaceEditText.getText().toString();
-        String equipmentRented = equipmentRentedEditText.getText().toString();
-        String drySuit = drySuitEditText.getText().toString();
         String eanx = EANxEditText.getText().toString();
         String extentOfInjury = extentOfInjuryEditText.getText().toString();
         String vicName = vicNameEditText.getText().toString();
@@ -129,8 +153,10 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
         int trainingId = trainingRadioGroup.getCheckedRadioButtonId();
         int vicGenderId = vicGenderRadioGroup.getCheckedRadioButtonId();
         int foundOnSurfaceId = foundOnSurfaceRadioGroup.getCheckedRadioButtonId();
+        int drySuitId = drySuitRadioGroup.getCheckedRadioButtonId();
+        int equipmentRentedId = equipmentRentedRadioGroup.getCheckedRadioButtonId();
 
-        if (fatalId == -1 || trainingId == -1 || vicGenderId == -1 || foundOnSurfaceId == -1) {
+        if (fatalId == -1 || trainingId == -1 || vicGenderId == -1 || foundOnSurfaceId == -1 || drySuitId == -1 || equipmentRentedId == -1) {
             Toast.makeText(this, "Please fill all the fields correctly", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -139,14 +165,18 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
         RadioButton trainingRadioButton = findViewById(trainingId);
         RadioButton vicGenderRadioButton = findViewById(vicGenderId);
         RadioButton foundOnSurfaceRadioButton = findViewById(foundOnSurfaceId);
+        RadioButton drySuitRadioButton = findViewById(drySuitId);
+        RadioButton equipmentRentedRadioButton = findViewById(equipmentRentedId);
 
         String fatal = fatalRadioButton.getText().toString();
         String training = trainingRadioButton.getText().toString();
         String vicGender = vicGenderRadioButton.getText().toString();
         String foundOnSurface = foundOnSurfaceRadioButton.getText().toString();
+        String drySuit = drySuitRadioButton.getText().toString();
+        String equipmentRented = equipmentRentedRadioButton.getText().toString();
 
         // Validate input fields
-        if (validateInputs(rescuerName, accidentDate, vicAge, vicCertLevel, depthAtAccident, city, currentDiveSite, currentUnderwater, currentSurface, equipmentRented, drySuit, eanx, extentOfInjury, vicName, vicNationality)) {
+        if (validateInputs(rescuerName, accidentDate, vicAge, vicCertLevel, depthAtAccident, city, currentDiveSite, currentUnderwater, currentSurface, eanx, extentOfInjury, vicName, vicNationality)) {
 
             Accident newAccident = new Accident(rescuerName, fatal, training, accidentDate, accidentTime, extentOfInjury, vicName, vicNationality, vicAge, vicGender, vicCertLevel, foundOnSurface, depthAtAccident, city, currentDiveSite, currentUnderwater, currentSurface, equipmentRented, drySuit, eanx);
 
@@ -176,6 +206,14 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
             });
 
             Toast.makeText(this, "Accident Saved", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(AddAccidentActivity.this, AccidentActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }, 1000);
         }
     }
 
@@ -188,7 +226,12 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
     }
 
     private void showDatePicker() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(AddAccidentActivity.this, R.style.DialogTheme, this, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(AddAccidentActivity.this, R.style.DialogTheme, this, year, month, day);
+        datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         datePickerDialog.show();
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.main_color_dark));
         datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.main_color_dark));
@@ -235,6 +278,17 @@ public class AddAccidentActivity extends AppCompatActivity implements TimePicker
             Toast.makeText(this, "Please select whether the victim was found on the surface", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        if (drySuitRadioGroup.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select whether the suit was dry", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (equipmentRentedRadioGroup.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select whether equipment are rented", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 

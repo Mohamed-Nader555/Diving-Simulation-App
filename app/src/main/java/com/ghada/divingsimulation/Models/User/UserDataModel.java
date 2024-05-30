@@ -1,8 +1,9 @@
 package com.ghada.divingsimulation.Models.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserDataModel {
+public class UserDataModel implements Serializable {
 
     String UserID;
     String fullName;

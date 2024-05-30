@@ -1,8 +1,9 @@
 package com.ghada.divingsimulation.Models.Diving;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Instructions {
+public class Instructions implements Serializable {
     String instructionTitle;
     String instructionDetails;
 

@@ -1,4 +1,4 @@
-package com.ghada.divingsimulation.Dive.LogBook;
+package com.ghada.divingsimulation.Dive.Certificate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ghada.divingsimulation.Dive.Adapters.GenericItemsAdapter;
-import com.ghada.divingsimulation.Models.User.LogBook;
+import com.ghada.divingsimulation.Models.User.Certificates;
 import com.ghada.divingsimulation.Models.User.UserDataModel;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Utils.CustomProgress;
@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class LogBookActivity extends AppCompatActivity {
+public class CertificateActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
@@ -40,21 +40,19 @@ public class LogBookActivity extends AppCompatActivity {
     DatabaseReference mUsersRef;
     FirebaseAuth mAuth;
     UserDataModel userData;
-    ArrayList<LogBook> logBooksList = new ArrayList<>();
+    ArrayList<Certificates> certificatesList = new ArrayList<>();
     private CustomProgress mCustomProgress = CustomProgress.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_book);
+        setContentView(R.layout.activity_certificate);
 
-        initView();
+        initViews();
 
     }
 
-    private void initView() {
-
-
+    private void initViews() {
         userData = new UserDataModel();
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -64,14 +62,14 @@ public class LogBookActivity extends AppCompatActivity {
         notFoundHintTV = findViewById(R.id.not_found_hint);
         recyclerView = findViewById(R.id.logbook_list_recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(LogBookActivity.this, RecyclerView.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(CertificateActivity.this, RecyclerView.VERTICAL, false));
 
         addButton = findViewById(R.id.fab_add_logbook);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(LogBookActivity.this, AddNewLogBookActivity.class);
+                Intent intent = new Intent(CertificateActivity.this, AddCertificateActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -87,7 +85,6 @@ public class LogBookActivity extends AppCompatActivity {
         });
 
         getData();
-
     }
 
     private void getData() {
@@ -98,15 +95,15 @@ public class LogBookActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    logBooksList.clear();
+                    certificatesList.clear();
                     userData = snapshot.getValue(UserDataModel.class);
                     if (userData.getLogBook() != null) {
-                        logBooksList.addAll(userData.getLogBook());
+                        certificatesList.addAll(userData.getCertificates());
                     }
-                    adapter = new GenericItemsAdapter(LogBookActivity.this, logBooksList, "LogBookType");
+                    adapter = new GenericItemsAdapter(CertificateActivity.this, certificatesList, "CertificatesType");
                     recyclerView.setAdapter(adapter);
                 }
-                if (logBooksList.size() == 0) {
+                if (certificatesList.size() == 0) {
                     notFoundHintTV.setVisibility(View.VISIBLE);
                 } else {
                     notFoundHintTV.setVisibility(View.GONE);
@@ -122,5 +119,6 @@ public class LogBookActivity extends AppCompatActivity {
         });
 
     }
+
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dive.LogBook.AddNewLogBookActivity">
+    tools:context=".Dive.LogBook.LogBookDetailsActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -37,7 +37,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="Add Logbook"
+                android:text="Logbook Details"
                 android:textColor="@color/main_color_dark"
                 android:textSize="@dimen/page_header"
                 android:textStyle="bold" />
@@ -311,7 +311,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
 
@@ -356,7 +355,7 @@
                 android:layout_marginTop="@dimen/tiny_margin"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Bottom Time (In Minutes)"
+                android:hint="Bottom Time"
                 app:boxStrokeColor="@color/main_color_dark"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/main_color_dark"
@@ -368,7 +367,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
+                    android:enabled="false"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
 
@@ -396,7 +395,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
 
@@ -424,7 +422,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
 
@@ -500,7 +497,7 @@
                 android:id="@+id/log_notes_tvl"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/tiny_margin"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -521,28 +518,6 @@
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/log_save_log_book_btn"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#00003D"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="@dimen/small_margin">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:drawablePadding="@dimen/tiny_margin"
-                    android:gravity="center"
-                    android:text="Save"
-                    android:textColor="@color/whitey"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
 
 
             <View

@@ -1,6 +1,8 @@
 package com.ghada.divingsimulation.Models.User;
 
-public class Accident {
+import java.io.Serializable;
+
+public class Accident implements Serializable {
 
     String rescuerName;
     String fetal;
@@ -49,7 +51,7 @@ public class Accident {
     }
 
 
-    public Accident(String rescuerName, String fetal, String training, String date, String time, String extentOfInjury, String vicName, String vicNationality, String vicAge, String vicGender, String vicCertLevel, String foundOnSurface,String depthAtAccident, String city, String currentDiveSite, String currentUnderWater, String currentSurface, String equipmentRented, String drySuit, String EANx) {
+    public Accident(String rescuerName, String fetal, String training, String date, String time, String extentOfInjury, String vicName, String vicNationality, String vicAge, String vicGender, String vicCertLevel, String foundOnSurface, String depthAtAccident, String city, String currentDiveSite, String currentUnderWater, String currentSurface, String equipmentRented, String drySuit, String EANx) {
         this.rescuerName = rescuerName;
         this.fetal = fetal;
         this.training = training;

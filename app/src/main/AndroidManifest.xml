@@ -20,6 +20,48 @@
         android:theme="@style/Theme.DivingSimulation"
         tools:targetApi="34">
         <activity
+            android:name=".Dive.Calculators.ModCalculatorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dive.Medical.ShowMedicalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dive.Certificate.CertificatesDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dive.Certificate.CertificateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dive.Accident.AccidentDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Dive.LogBook.LogBookDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Dive.Accident.AddAccidentActivity"
             android:exported="false">
             <meta-data
@@ -48,14 +90,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Profile.AddMedicalActivity"
+            android:name=".Dive.Medical.AddMedicalActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Profile.AddCertActivity"
+            android:name=".Dive.Certificate.AddCertificateActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

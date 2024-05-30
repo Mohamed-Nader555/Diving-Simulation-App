@@ -18,6 +18,11 @@ import androidx.fragment.app.Fragment;
 import com.ghada.divingsimulation.Auth.EditProfileActivity;
 import com.ghada.divingsimulation.Dialogs.AddCertDialogFragment;
 import com.ghada.divingsimulation.Dialogs.MedicalDialogFragment;
+import com.ghada.divingsimulation.Dive.Certificate.CertificateActivity;
+import com.ghada.divingsimulation.Dive.Medical.AddMedicalActivity;
+import com.ghada.divingsimulation.Dive.Medical.ShowMedicalActivity;
+import com.ghada.divingsimulation.Models.User.LogBook;
+import com.ghada.divingsimulation.Models.User.Medical;
 import com.ghada.divingsimulation.Models.User.UserDataModel;
 import com.ghada.divingsimulation.R;
 import com.ghada.divingsimulation.Splash.SplashActivity;
@@ -34,6 +39,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
+
 public class ProfileFragment extends Fragment {
 
     ProgressDialog mLoading;
@@ -41,6 +48,7 @@ public class ProfileFragment extends Fragment {
     MedicalDialogFragment medicalDialog = new MedicalDialogFragment();
     CardView mAddCertBtn, mMedicalInformationBtn;
     TextView mNameTV, mEmailTV;
+    ImageView editProfileImage;
     private View view;
     private Button logoutBtn;
     private String currentUserID;
@@ -51,7 +59,7 @@ public class ProfileFragment extends Fragment {
     private UserDataModel userData;
     private GoogleSignInClient mGoogleSignInClient;
     private AuthCredential credential;
-    ImageView editProfileImage;
+    TextView total_dives_et, total_dive_time_et, avg_depth_et, max_depth_et;
 
 
     public ProfileFragment() {
@@ -88,23 +96,17 @@ public class ProfileFragment extends Fragment {
         mNameTV = view.findViewById(R.id.name_text);
         mEmailTV = view.findViewById(R.id.email_text);
         editProfileImage = view.findViewById(R.id.edit_profile_image);
-
+        total_dives_et = view.findViewById(R.id.total_dives_et);
+        total_dive_time_et = view.findViewById(R.id.total_dive_time_et);
+        avg_depth_et = view.findViewById(R.id.avg_depth_et);
+        max_depth_et = view.findViewById(R.id.max_depth_et);
 
         getData();
 
         mAddCertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(requireContext(), AddCertActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mMedicalInformationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                medicalDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "MedicalDialogFragment");
-                Intent intent = new Intent(requireContext(), AddMedicalActivity.class);
+                Intent intent = new Intent(requireContext(), CertificateActivity.class);
                 startActivity(intent);
             }
         });
@@ -143,6 +145,57 @@ public class ProfileFragment extends Fragment {
                     mNameTV.setText(name);
                     mEmailTV.setText(email);
 
+
+                    if(userData.getLogBook() != null){
+
+                        String totalDives = String.valueOf(userData.getLogBook().size());
+                        String totalDiveTime;
+                        int totalDiveTimeInt = 0 ;
+                        int maxDepth = 0 ;
+                        double totalMaxDepth = 0;
+                        double avgDepth = 0 ;
+                        for (LogBook log: userData.getLogBook()) {
+                                totalDiveTimeInt += Integer.parseInt(log.getBottomTime());
+                                if(Integer.parseInt(log.getMaxDepth()) > maxDepth){
+                                    maxDepth = Integer.parseInt(log.getMaxDepth());
+                                }
+                                totalMaxDepth += Integer.parseInt(log.getMaxDepth());
+                        }
+                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                        avgDepth = totalMaxDepth / userData.getLogBook().size();
+                        avgDepth = Double.parseDouble(decimalFormat.format(avgDepth));
+                        totalDiveTime = totalDiveTimeInt + " min";
+
+                        total_dives_et.setText(totalDives);
+                        total_dive_time_et.setText(totalDiveTime);
+                        avg_depth_et.setText(avgDepth + " m");
+                        max_depth_et.setText(maxDepth + " m");
+                    }else {
+                        total_dives_et.setText("No Dives");
+                        total_dive_time_et.setText("0 min");
+                        avg_depth_et.setText("0 m");
+                        max_depth_et.setText("0 m");
+                    }
+
+                    Medical medical = userData.getMedical();
+
+                    if (medical != null) {
+                        mMedicalInformationBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(requireContext(), ShowMedicalActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    } else {
+                        mMedicalInformationBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(requireContext(), AddMedicalActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
 
                     mLoading.dismiss();
 //

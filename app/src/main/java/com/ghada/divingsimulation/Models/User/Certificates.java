@@ -1,6 +1,8 @@
 package com.ghada.divingsimulation.Models.User;
 
-public class Certificates {
+import java.io.Serializable;
+
+public class Certificates implements Serializable {
     String certDate;
     String certOrg;
     String certLevel;

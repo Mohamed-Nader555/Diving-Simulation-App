@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
+    private static final int RC_SIGN_IN = 100;
     final String TAG = "ProfileActivity";
     String currentUserID;
     FirebaseUser user;
@@ -43,19 +44,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     UserDataModel userData;
     GoogleSignInClient mGoogleSignInClient;
-
-    private CustomProgress mCustomProgress = CustomProgress.getInstance();
-
-    private TextInputLayout current_password_input_et, new_password_input_et, confirm_password_input_et;
-    private EditText currentPasswordET, newPasswordET, confirmPasswordET;
     Button savePasswordBtn;
     ImageView back_btn;
-
-    private int havePassword = 0;
     String password;
+    private CustomProgress mCustomProgress = CustomProgress.getInstance();
+    private TextInputLayout current_password_input_et, new_password_input_et, confirm_password_input_et;
+    private EditText currentPasswordET, newPasswordET, confirmPasswordET;
+    private int havePassword = 0;
     private AuthCredential credential;
-    private static final int RC_SIGN_IN = 100;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,7 +2,9 @@ package com.ghada.divingsimulation.Dive.LogBook;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -36,23 +38,19 @@ import java.util.Calendar;
 
 public class AddNewLogBookActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
-    private static final int START_TIME_PICKER = 1;
-    private static final int BOTTOM_TIME_PICKER = 2;
     TextInputLayout dateTextInputLayout, startTimeTextInputLayout, bottomTimeTextInputLayout;
     ImageView back_btn;
-    private int activeTimePicker = 0;
-    private String TAG = "AddNewLogBookActivity";
-    private Spinner diveTypeSpinner, waterTypeSpinner, visibilitySpinner, seaConditionSpinner, gasMixtureSpinner;
-    private TextInputEditText dateEditText, startTimeEditText, bottomTimeEditText, startTankEditText, endTankEditText;
-    private TextInputEditText diveSiteEditText, buddyEditText, instructorEditText, notesEditText, maxDepthEditText, locationEditText;
-    private CardView saveButton;
-    private String selectedDate, selectedStartTime, selectedBottomTime;
-
     String currentUserID;
     FirebaseUser user;
     DatabaseReference mUsersRef;
     FirebaseAuth mAuth;
     UserDataModel userData;
+    private String TAG = "AddNewLogBookActivity";
+    private Spinner diveTypeSpinner, waterTypeSpinner, visibilitySpinner, seaConditionSpinner, gasMixtureSpinner;
+    private TextInputEditText dateEditText, startTimeEditText, bottomTimeEditText, startTankEditText, endTankEditText;
+    private TextInputEditText diveSiteEditText, buddyEditText, instructorEditText, notesEditText, maxDepthEditText, locationEditText;
+    private CardView saveButton;
+    private String selectedDate;
     private CustomProgress mCustomProgress = CustomProgress.getInstance();
 
 
@@ -107,6 +105,8 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(AddNewLogBookActivity.this, LogBookActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -114,12 +114,11 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
 
         dateTextInputLayout.setEndIconOnClickListener(v -> showDatePicker());
         startTimeTextInputLayout.setEndIconOnClickListener(v -> {
-            activeTimePicker = START_TIME_PICKER;
             showTimePicker();
         });
         bottomTimeTextInputLayout.setEndIconOnClickListener(v -> {
-            activeTimePicker = BOTTOM_TIME_PICKER;
-            showTimePicker();
+//            activeTimePicker = BOTTOM_TIME_PICKER;
+//            showTimePicker();
         });
         saveButton.setOnClickListener(v -> saveLogBook());
 
@@ -135,11 +134,17 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
 
     private void showDatePicker() {
         Log.e(TAG, "showDatePicker: test");
-        DatePickerDialog datePickerDialog = new DatePickerDialog(AddNewLogBookActivity.this, R.style.DialogTheme, this, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(AddNewLogBookActivity.this, R.style.DialogTheme, this, year, month, day);
+        datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         datePickerDialog.show();
         datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.main_color_dark));
         datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.main_color_dark));
     }
+
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -151,18 +156,8 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         String selectedTime = hourOfDay + ":" + minute + ":00";
-        switch (activeTimePicker) {
-            case START_TIME_PICKER:
-                selectedStartTime = selectedTime;
-                startTimeEditText.setText(selectedTime);
-                Log.e(TAG, "onTimeSet: Start ::: " + selectedTime);
-                break;
-            case BOTTOM_TIME_PICKER:
-                selectedBottomTime = selectedTime;
-                bottomTimeEditText.setText(selectedTime);
-                Log.e(TAG, "onTimeSet: Bottom ::: " + selectedTime);
-                break;
-        }
+        startTimeEditText.setText(selectedTime);
+        Log.e(TAG, "onTimeSet: Start ::: " + selectedTime);
     }
 
 
@@ -212,6 +207,16 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
                 }
             });
             Toast.makeText(this, "Log Book Saved", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(AddNewLogBookActivity.this, LogBookActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }, 1000);
+
+
         }
     }
 
@@ -229,11 +234,8 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
     private void initDiveTypeSpinner() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Select Dive Type ...");
-        list.add("Recreational");
-        list.add("Technical");
-        list.add("Cave");
-        list.add("Wreck");
-        list.add("Deep");
+        list.add("Shore");
+        list.add("Boat");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         diveTypeSpinner.setAdapter(adapter);
@@ -243,9 +245,8 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
     private void initWaterTypeSpinner() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Select Water Type ...");
-        list.add("Freshwater");
-        list.add("Saltwater");
-        list.add("Brackish");
+        list.add("Fresh water");
+        list.add("Salt water");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         waterTypeSpinner.setAdapter(adapter);
@@ -283,7 +284,6 @@ public class AddNewLogBookActivity extends AppCompatActivity implements TimePick
         list.add("Select Gas Mixture ...");
         list.add("Air");
         list.add("Nitrox");
-        list.add("Trimix");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         gasMixtureSpinner.setAdapter(adapter);

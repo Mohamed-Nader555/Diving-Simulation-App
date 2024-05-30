@@ -117,7 +117,6 @@
                 android:id="@+id/profile_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:src="@drawable/user" />
 
 
@@ -129,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/mid_margin"
-            android:text="Name"
+            tools:text="Name"
             android:textColor="@color/dark"
             android:textSize="@dimen/mid_text"
             android:textStyle="bold"
@@ -142,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tiny_margin"
-            android:text="Email"
+            tools:text="Email"
             android:textColor="@color/lite_dark"
             android:textSize="@dimen/small_text"
             app:layout_constraintEnd_toEndOf="@id/name_text"
@@ -418,7 +417,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="12dp"
                             android:gravity="center"
-                            android:text="10 Times"
+                            tools:text="10 Times"
                             android:textColor="@color/main_color_dark"
                             android:textSize="@dimen/_11sdp"
                             android:textStyle="bold" />
@@ -473,7 +472,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="12dp"
                             android:gravity="center"
-                            android:text="10 Hours"
+                            tools:text="10 Hours"
                             android:textColor="@color/main_color_dark"
                             android:textSize="@dimen/_11sdp"
                             android:textStyle="bold" />
@@ -539,7 +538,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="12dp"
                             android:gravity="center"
-                            android:text="10 Meter"
+                            tools:text="10 Meter"
                             android:textColor="@color/main_color_dark"
                             android:textSize="@dimen/_11sdp"
                             android:textStyle="bold" />
@@ -594,7 +593,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="12dp"
                             android:gravity="center"
-                            android:text="14 Meter"
+                            tools:text="14 Meter"
                             android:textColor="@color/main_color_dark"
                             android:textSize="@dimen/_11sdp"
                             android:textStyle="bold" />
@@ -615,78 +614,27 @@
 
         </RelativeLayout>
 
-
-        <TextView
-            android:id="@+id/certificates_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/big_margin"
-            android:layout_marginTop="@dimen/mid_margin"
-            android:text="Certificates"
-            android:textColor="@color/dark"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_info" />
-
-
-        <TableLayout
-            android:id="@+id/cert_table"
+        <View
+            android:id="@+id/seprator_line"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:weightSum="3"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/certificates_tv">
-
-            <TableRow>
-
-                <TextView
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    android:text="Date"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    android:text="Org."
-                    android:textAlignment="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_column="1"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    android:text="Level"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-        </TableLayout>
+            android:layout_height="5dp"
+            android:layout_marginStart="@dimen/double_big_margin"
+            android:layout_marginTop="@dimen/mid_margin"
+            android:layout_marginEnd="@dimen/double_big_margin"
+            android:background="@color/lite_gray"
+            app:layout_constraintTop_toBottomOf="@id/user_info" />
 
 
         <LinearLayout
             android:id="@+id/medical_and_cert_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/double_big_margin"
+            android:layout_marginTop="@dimen/mid_margin"
             android:layout_marginBottom="@dimen/double_big_margin"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintBottom_toTopOf="@id/last_view"
-            app:layout_constraintTop_toBottomOf="@id/cert_table">
+            app:layout_constraintTop_toBottomOf="@id/seprator_line">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/medical_information_card_view"
@@ -734,7 +682,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Add and edit your medical information"
+                        android:text="Add and See Your Medical information"
                         android:textColor="@color/main_color_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />

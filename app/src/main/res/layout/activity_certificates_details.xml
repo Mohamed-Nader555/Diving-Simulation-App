@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dive.Certificate.AddCertificateActivity">
+    tools:context=".Dive.Certificate.CertificatesDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -29,6 +29,7 @@
                 android:src="@drawable/ic_back"
                 app:tint="@color/main_color_dark" />
 
+
             <TextView
                 android:id="@+id/page_title"
                 android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="Add Certificate"
+                android:text="Certificate Details"
                 android:textColor="@color/main_color_dark"
                 android:textSize="@dimen/page_header"
                 android:textStyle="bold" />
@@ -187,29 +188,6 @@
                 app:boxStrokeColor="@color/whitey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cert_save_cert_book_btn"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/double_big_margin"
-                android:backgroundTint="#00003D"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="@dimen/small_margin">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:drawablePadding="@dimen/tiny_margin"
-                    android:gravity="center"
-                    android:text="Save"
-                    android:textColor="@color/whitey"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
 
 
             <View

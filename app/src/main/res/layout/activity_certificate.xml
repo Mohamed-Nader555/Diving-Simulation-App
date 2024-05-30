@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dive.LogBook.LogBookActivity">
-
+    tools:context=".Dive.Certificate.CertificateActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -37,7 +36,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="Logbook History"
+                android:text="Certificates"
                 android:textColor="@color/main_color_dark"
                 android:textSize="@dimen/page_header"
                 android:textStyle="bold" />
@@ -79,7 +78,7 @@
         android:layout_marginStart="@dimen/tiny_margin"
         android:layout_marginTop="@dimen/tiny_margin"
         android:layout_marginEnd="@dimen/tiny_margin"
-        android:text="There is now Logbooks!"
+        android:text="There is now Certificates!"
         android:textColor="@color/main_color_dark"
         android:textSize="@dimen/_19sdp"
         android:textStyle="bold"

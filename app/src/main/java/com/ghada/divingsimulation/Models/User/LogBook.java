@@ -1,6 +1,8 @@
 package com.ghada.divingsimulation.Models.User;
 
-public class LogBook {
+import java.io.Serializable;
+
+public class LogBook implements Serializable {
     String date;
     String diveSite;
     String buddy;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dive.Accident.AddAccidentActivity">
+    tools:context=".Dive.Accident.AccidentDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -36,7 +36,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="Fill Accident Form"
+                android:text="Accident Details"
                 android:textColor="@color/main_color_dark"
                 android:textSize="@dimen/page_header"
                 android:textStyle="bold" />
@@ -374,7 +374,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -522,7 +521,6 @@
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/tiny_margin"
                 android:hint="Depth at Accident"
-                android:visibility="gone"
                 app:boxStrokeColor="@color/main_color_dark"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/main_color_dark"
@@ -534,7 +532,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -611,7 +608,7 @@
                 android:layout_marginTop="@dimen/tiny_margin"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Under Water Current"
+                android:hint="Current Under Water"
                 app:boxStrokeColor="@color/main_color_dark"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/main_color_dark"
@@ -638,7 +635,7 @@
                 android:layout_marginTop="@dimen/tiny_margin"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Surface Current Condition"
+                android:hint="Current Surface Conditions"
                 app:boxStrokeColor="@color/main_color_dark"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/main_color_dark"
@@ -665,6 +662,7 @@
                 android:textSize="@dimen/small_text"
                 android:textStyle="bold" />
 
+            <!-- Equipment Rented -->
             <!-- Equipment Rented -->
             <LinearLayout
                 android:id="@+id/equipment_rented_question"
@@ -781,7 +779,7 @@
                 android:layout_marginTop="@dimen/tiny_margin"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="EANx %"
+                android:hint="EANx"
                 app:boxStrokeColor="@color/main_color_dark"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/main_color_dark"
@@ -793,33 +791,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="name"
-                    android:inputType="number"
                     android:textColor="@color/main_color_dark"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/save_accident_btn"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#00003D"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="@dimen/small_margin">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:drawablePadding="@dimen/tiny_margin"
-                    android:gravity="center"
-                    android:text="Save"
-                    android:textColor="@color/whitey"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
 
 
             <View

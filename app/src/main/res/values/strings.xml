@@ -2,8 +2,6 @@
     <string name="app_name">Diving Simulation</string>
 
 
-
-
     <string name="database_logbooks">logBook</string>
     <string name="database_accidents">accidents</string>
     <string name="database_certificates">certificates</string>

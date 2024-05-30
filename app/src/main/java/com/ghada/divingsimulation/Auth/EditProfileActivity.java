@@ -38,14 +38,10 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     UserDataModel userData;
     GoogleSignInClient mGoogleSignInClient;
-
-
-    private CustomProgress mCustomProgress = CustomProgress.getInstance();
-
-    private EditText fullNameEditText, emailEditText;
     Button changePasswordBtn, logoutBtn;
     ImageView back_btn;
-
+    private CustomProgress mCustomProgress = CustomProgress.getInstance();
+    private EditText fullNameEditText, emailEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

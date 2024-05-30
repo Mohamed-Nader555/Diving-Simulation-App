@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dive.Certificate.AddCertificateActivity">
+    tools:context=".Dive.Calculators.ModCalculatorActivity">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -36,7 +37,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="15dp"
-                android:text="Add Certificate"
+                android:text="Mod Calculator"
                 android:textColor="@color/main_color_dark"
                 android:textSize="@dimen/page_header"
                 android:textStyle="bold" />
@@ -62,154 +63,152 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/small_item_drawable_padding"
                 android:layout_marginBottom="@dimen/small_margin"
-                android:src="@drawable/cert_logo" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cert_date_tvl"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/tiny_margin"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Certification Date"
-                app:boxStrokeColor="@color/main_color_dark"
-                app:endIconDrawable="@drawable/ic_date_range"
-                app:endIconMode="custom"
-                app:hintTextColor="@color/main_color_dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cert_date_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:autofillHints="name"
-                    android:enabled="false"
-                    android:textColor="@color/main_color_dark"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cert_org_tvl"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/tiny_margin"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Certification Org."
-                app:boxStrokeColor="@color/main_color_dark"
-                app:endIconMode="clear_text"
-                app:hintTextColor="@color/main_color_dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cert_org_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:autofillHints="name"
-                    android:textColor="@color/main_color_dark"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <TextView
-                style="@style/InputLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/tiny_margin"
-                android:text="Certificate Level" />
-
-            <Spinner
-                android:id="@+id/cert_level_spinner"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                app:boxStrokeColor="@color/whitey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cert_number_tvl"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/tiny_margin"
-                android:layout_marginEnd="@dimen/_20sdp"
-
-                android:layout_marginBottom="@dimen/tiny_margin"
-                android:hint="Certification Number"
-                app:boxStrokeColor="@color/main_color_dark"
-                app:endIconMode="clear_text"
-                app:hintTextColor="@color/main_color_dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cert_number_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:textColor="@color/main_color_dark"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <TextView
-                style="@style/InputLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/tiny_margin"
-                android:text="Certificate Type" />
-
-            <Spinner
-                android:id="@+id/cert_type_spinner"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                app:boxStrokeColor="@color/whitey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:src="@drawable/calculator" />
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cert_save_cert_book_btn"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="55dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/double_big_margin"
-                android:backgroundTint="#00003D"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="@dimen/small_margin">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/big_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:backgroundTint="@color/main_color"
+                android:elevation="@dimen/big_margin"
+                android:padding="10dp"
+                app:cardCornerRadius="@dimen/big_margin"
+                app:cardElevation="@dimen/tiny_margin">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:drawablePadding="@dimen/tiny_margin"
-                    android:gravity="center"
-                    android:text="Save"
-                    android:textColor="@color/whitey"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/title_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Maximum Operating Depth Calculator "
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/mid_text"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/sub_title_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="This calculator determines the maximum operating depth (MOD) at the provided partial pressure of oxygen (PPO2) in bar with various fractions of oxygen (FO2). In technical diving, the maximum operating depth of a breathing gas is the depth at which the partial pressure of oxygen (PPO2) of the gas mix exceeds a safe limit."
+                        android:textColor="@color/main_color_dark"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/title_text_view" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fo2_tvl"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/tiny_margin"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:hint="Fraction of Oxygen (FO2)"
+                app:boxStrokeColor="@color/main_color_dark"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/main_color_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fo2_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/po2_tvl"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/tiny_margin"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:hint="Partial Pressure of Oxygen (PPO2)"
+                app:boxStrokeColor="@color/main_color_dark"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/main_color_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/po2_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <View
+                android:id="@+id/seprator_line"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginStart="@dimen/double_big_margin"
+                android:layout_marginTop="@dimen/mid_margin"
+                android:layout_marginEnd="@dimen/double_big_margin"
+                android:background="@color/lite_gray"
+                app:layout_constraintTop_toBottomOf="@id/user_info" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mod_tvl"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/mid_margin"
+                android:layout_marginEnd="@dimen/_20sdp"
+
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:hint="Maximum Operating Depth (MOD)"
+                app:boxStrokeColor="@color/main_color_dark"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/main_color_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mod_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/main_color_dark"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <View

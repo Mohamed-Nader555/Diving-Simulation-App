@@ -27,6 +27,15 @@
     </style>
 
 
+    <style name="TextAppearance.Design.Hint" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?attr/colorControlActivated</item>
+    </style>
+
+    <style name="InputLabel" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:paddingLeft">@dimen/mid_margin</item>
+    </style>
+
+
     <style name="Theme.DivingSimulation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ShopOnTheGo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

@@ -15,6 +15,7 @@ import com.ghada.divingsimulation.Dive.Calculators.ModCalculatorActivity;
 import com.ghada.divingsimulation.Dive.Certificate.CertificateActivity;
 import com.ghada.divingsimulation.Dive.CheckLists.CheckListActivity;
 import com.ghada.divingsimulation.Dive.DiveSites.DiveSitesActivity;
+import com.ghada.divingsimulation.Dive.ERDPML.eRDPMLActivity;
 import com.ghada.divingsimulation.Dive.LogBook.LogBookActivity;
 import com.ghada.divingsimulation.Dive.Medical.AddMedicalActivity;
 import com.ghada.divingsimulation.Dive.Medical.ShowMedicalActivity;
@@ -34,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DiveFragment extends Fragment {
 
     View view;
-    CardView logbook_card_view, mod_card_view, checklist_card_view, dive_sties_card_view, simulation_card_view, certificates_card_view, accidents_card_view, medical_card_view;
+    CardView logbook_card_view, mod_card_view, checklist_card_view, dive_sties_card_view, simulation_card_view, certificates_card_view, accidents_card_view, medical_card_view, erdpml_card_view, sos_card_view;
 
     String currentUserID;
     FirebaseUser user;
@@ -72,6 +73,8 @@ public class DiveFragment extends Fragment {
         accidents_card_view = view.findViewById(R.id.accidents_card_view);
         medical_card_view = view.findViewById(R.id.medical_card_view);
         mod_card_view = view.findViewById(R.id.mod_card_view);
+        erdpml_card_view = view.findViewById(R.id.erdpml_card_view);
+        sos_card_view = view.findViewById(R.id.sos_card_view);
 
 
         logbook_card_view.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +136,22 @@ public class DiveFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ModCalculatorActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        erdpml_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), eRDPMLActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        sos_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), ModCalculatorActivity.class);
+//                startActivity(intent);
             }
         });
 

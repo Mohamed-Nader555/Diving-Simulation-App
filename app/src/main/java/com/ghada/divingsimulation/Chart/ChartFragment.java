@@ -199,7 +199,7 @@ public class ChartFragment extends Fragment {
         map.put("appid", getResources().getString(R.string.api_key));
         map.put("units", getResources().getString(R.string.units));
 
-        APIService apiService = WebServiceClient.getRetrofit().create(APIService.class);
+        APIService apiService = WebServiceClient.getWeatherRetrofit().create(APIService.class);
         Call<WeatherResponse> call = apiService.Weather(map);
 
         call.enqueue(new Callback<WeatherResponse>() {

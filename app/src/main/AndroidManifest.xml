@@ -20,6 +20,13 @@
         android:theme="@style/Theme.DivingSimulation"
         tools:targetApi="34">
         <activity
+            android:name=".Dive.ERDPML.eRDPMLActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Dive.Calculators.ModCalculatorActivity"
             android:exported="false">
             <meta-data

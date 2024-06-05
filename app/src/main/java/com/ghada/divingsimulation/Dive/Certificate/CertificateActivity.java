@@ -97,7 +97,7 @@ public class CertificateActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     certificatesList.clear();
                     userData = snapshot.getValue(UserDataModel.class);
-                    if (userData.getLogBook() != null) {
+                    if (userData.getCertificates() != null) {
                         certificatesList.addAll(userData.getCertificates());
                     }
                     adapter = new GenericItemsAdapter(CertificateActivity.this, certificatesList, "CertificatesType");

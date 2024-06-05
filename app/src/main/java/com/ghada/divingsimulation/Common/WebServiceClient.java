@@ -5,18 +5,31 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebServiceClient {
 
-    private static Retrofit retrofit = null;
+    private static Retrofit retrofitWeather = null;
+    private static Retrofit retrofitAI = null;
 
-    public static Retrofit getRetrofit() {
-        if (retrofit == null) {
+    public static Retrofit getWeatherRetrofit() {
+        if (retrofitWeather == null) {
 
-            return retrofit = new Retrofit.Builder()
-                    .baseUrl(AppConstants.BASE_URL)
+            return retrofitWeather = new Retrofit.Builder()
+                    .baseUrl(AppConstants.WEATHER_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
 
-        return retrofit;
+        return retrofitWeather;
+    }
+
+    public static Retrofit getAIRetrofit() {
+        if (retrofitAI == null) {
+
+            return retrofitAI = new Retrofit.Builder()
+                    .baseUrl(AppConstants.AI_BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return retrofitAI;
     }
 
 }

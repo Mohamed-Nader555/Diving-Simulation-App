@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="@dimen/_150sdp"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_130sdp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dive_logo" />
+        app:srcCompat="@drawable/splash_screen" />
 
     <TextView
         android:id="@+id/welcomeTextView"

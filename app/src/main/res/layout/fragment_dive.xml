@@ -80,8 +80,9 @@
 
             android:weightSum="2">
 
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/logbook_card_view"
+                android:id="@+id/simulation_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_145sdp"
                 android:layout_margin="5dp"
@@ -103,7 +104,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/margin_small_start_end"
                         android:scaleType="fitXY"
-                        android:src="@drawable/dive_logbook" />
+                        android:src="@drawable/dive_diving" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -113,7 +114,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Logbook"
+                        android:text="AI Simulation"
                         android:textColor="@color/secondary_color"
                         android:textSize="@dimen/mid_text"
                         android:textStyle="bold" />
@@ -126,7 +127,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Log and store your dives digitaly"
+                        android:text="Simulate your Next dive using AI"
                         android:textColor="@color/main_color_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -137,7 +138,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/checklist_card_view"
+                android:id="@+id/erdpml_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_145sdp"
                 android:layout_margin="5dp"
@@ -159,7 +160,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/margin_small_start_end"
                         android:scaleType="fitXY"
-                        android:src="@drawable/dive_checklist" />
+                        android:src="@drawable/table" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -169,7 +170,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Checklists"
+                        android:text="eRDPML"
                         android:textColor="@color/secondary_color"
                         android:textSize="@dimen/mid_text"
                         android:textStyle="bold" />
@@ -182,7 +183,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Handy diver's checklists"
+                        android:text="Simulate your Next Dive using eRDPML"
                         android:textColor="@color/main_color_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -261,7 +262,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/simulation_card_view"
+                android:id="@+id/logbook_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_145sdp"
                 android:layout_margin="5dp"
@@ -283,7 +284,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/margin_small_start_end"
                         android:scaleType="fitXY"
-                        android:src="@drawable/dive_diving" />
+                        android:src="@drawable/dive_logbook" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -293,7 +294,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="AI Simulation"
+                        android:text="Logbook"
                         android:textColor="@color/secondary_color"
                         android:textSize="@dimen/mid_text"
                         android:textStyle="bold" />
@@ -306,7 +307,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Simulate your Next dive using AI"
+                        android:text="Log and store your dives digitaly"
                         android:textColor="@color/main_color_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -566,7 +567,6 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:id="@+id/fifth_row"
             android:layout_width="match_parent"
@@ -576,8 +576,9 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/erdpml_card_view"
+                android:id="@+id/checklist_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_145sdp"
                 android:layout_margin="5dp"
@@ -599,7 +600,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/margin_small_start_end"
                         android:scaleType="fitXY"
-                        android:src="@drawable/table" />
+                        android:src="@drawable/dive_checklist" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -609,7 +610,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="eRDPML"
+                        android:text="Checklists"
                         android:textColor="@color/secondary_color"
                         android:textSize="@dimen/mid_text"
                         android:textStyle="bold" />
@@ -622,7 +623,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="Simulate your Next Dive using eRDPML"
+                        android:text="Handy diver's checklists"
                         android:textColor="@color/main_color_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -630,7 +631,6 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/sos_card_view"
@@ -689,7 +689,6 @@
 
 
         </LinearLayout>
-
 
 
         <View
